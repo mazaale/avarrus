@@ -1,0 +1,7 @@
+body{background-color: #FFE4E1}
+input{width: 100%}
+input.radio{width: 20%}
+input.submit{width: 20%}
+input.checkbox{width: 20%}
+select{width: 100%}
+ul{list-style-type: none}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="\static\styles\mystyle.css">
+	</head>
+	<body>
+	<div class="row">
+				<form class="container" action="/process" method="get">
+				<div class="row">
+					<div class="col-md-4">Введите искомое слово</div>
+					<input class="col-md-4" type="text" name="loc" placeholder="дефис">
+				</div>
+					</tr>
+				</form>
+				<form class="container">
+					<br>
+					<a class="linker" href="а.html">а</a></p>
+					<br>
+					<br>
+					<a class="linker" href="б.html">б</a></p>
+					<br>
+					<br>
+					<a class="linker" href="в.html">в</a></p>
+					<br>
+					<br>
+					<a class="linker" href="г.html">г</a></p>
+					<br>
+					<br>
+					<a class="linker" href="д.html">д</a></p>
+					<br>
+				</form>
+				
+	</div>
+	</body>
+</html>

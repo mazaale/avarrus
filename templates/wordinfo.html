@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="\static\styles\mystyle.css">
+	</head>
+	<body>
+	<br>
+	<div class="row">
+		<form class="container" action="/searchresult" method="get">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<input class="col-md-4" type="text" name="loc" placeholder="Введите искомое слово">
+			</div>
+			<div class="row">
+				<select name="genre" id="language" class="form-control">
+					<option value="avarrus">Аварско-русский</option>
+					<option value="rusavar">Русско-аварский</option>
+			</div>
+			<br>
+			<div class="row">
+				<input type="submit" name="submit" value="Поиск">
+			</div>
+			</form>
+				<form class="container">
+					<br>
+					<a class="linker" href="main.html">На главную страницу</a></p>
+					<br>
+				</form>
+				
+				<form class="container">
+				<h1>{{ word.base }}</h1>
+					<h3>{{ word.lemma }} &nbsp&nbsp</h3>
+					{% if word.grammar %}
+					<h4> {{ word.grammar }} </h4>
+					{% endif %}
+					<br>
+			<table class="table" align='center'>
+			<tr>
+				<td></td>
+				<td><i>{{ word.explanatation }}</i></td>
+			</tr>
+			{% if word.translate %}
+			<tr>
+				<td>Перевод:</td>
+				<td>{{ word.translate }}</td>
+			</tr>
+			{% endif %}
+			{% if word.link %}
+			<tr>
+				<td><i>см.</i></td>
+				<td>
+					{% for x in word.link %}
+						{{ x }}, 
+					{% endfor %}
+				</td>
+			</tr>
+			{% endif %}
+			</table>
+			{% if word.examples %}
+			<h5><i>Примеры:</i></h5>
+			<table class="table" align='center'>
+				{% for pair in word.examples %}
+				<tr>
+						<td><b>{{ pair[0] }}</b></td>
+				</tr>	
+				<tr>
+					<td><b>{{ pair[1] }}</b></td>
+			</tr>	
+				{% endfor %}
+			</table>
+			{% endif %}
+				</form>
+
+	</body>
+</html>
