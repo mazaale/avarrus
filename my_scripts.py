@@ -34,7 +34,7 @@ df_avar = pd.read_json('df_avar.json', orient='index')
 def clean_query(query):
     query = re.sub('[1\|l]', 'I', query)
     query = re.sub('[^Iа-яА-Я\- ]', "", query).strip()
-    return query.lower()
+    return query.lower().replace("i", "I")
 
 def search_engine(query, genre):
     if genre == "avarrus":
@@ -45,6 +45,9 @@ def search_engine(query, genre):
     ix_list = df_sub.loc[df_sub['word'] == query, 'big_ix'].to_list()
     fortemplate = df.loc[ix_list].to_dict(orient='records')
     return fortemplate
+
+def letter_contents(query):
+    return df.loc[df['first_letters'] == query].to_dict(orient='records')
 
 def extract_list(records, column):
     return [x[column] for x in records]

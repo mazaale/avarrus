@@ -1,39 +1,50 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="\static\styles\mystyle.css">
+		<meta charset="UTF-8">
+		<title>Search Results</title>
+		<link rel="stylesheet" href="..\\static\\styles\\mystyle.css">
 	</head>
 	<body>
+		<header width="100%">
+		<br>
+		<h1>Аварско-русский и Русско-аварский онлайн-словарь</h1>
+		<h2>(Под редакцией М.М. Гимбатова) – Махачкала: ДНЦ РАН, 2006<h2>
+		<h3>Школа лингвистики, 2021</h3>
+		<br>
+	</header>
 	<br>
-	<div class="row">
-		<form class="container" action="/searchresult" method="get">
-			<div class="row">
-				<div class="col-md-4"></div>
-				<input class="col-md-4" type="text" name="loc" placeholder="Введите искомое слово">
-			</div>
-			<div class="row">
-				<select name="genre" id="language" class="form-control">
-					<option value="avarrus">Аварско-русский</option>
-					<option value="rusavar">Русско-аварский</option>
-			</div>
-			<br>
-			<div class="row">
-				<input type="submit" name="submit" value="Поиск">
-			</div>
-			</form>
-				
-				<form class="container">
-				<h1>Поисковой запрос: <i>{{ query }}</i></h1>
-				<table class="table">
+	<form id='searchform' action="/searchresult" method="get">
+		<table align='center' id='search'>
+		<tr>
+			<td id='searchinput' width="60%" align='center'>
+				<input required size='100%' type="text" name="loc" placeholder="Введите искомое слово">
+			</td>
+			<td id='searchchoice' width="25%" align='left'>
+				<select width='100%' name="genre" id="language">
+					<option value="avarrus">Аварско-русский перевод</option>
+					<option value="rusavar">Русско-аварский перевод</option>
+			</td align='center'>
+			<td id='searchproced' width="15%" align='left'>
+				<button id='searchbutton' type="submit" name="submit" value="Поиск"><b>Поиск</b></button>
+			</td>
+		</tr>
+		</table>
+		</form>
+		
+		<div id='ourbody'>
+		<form>
+			<a class="linker" href="../">Перейти на главную страницу</a></p>
+		</form>
+	
+				<form>
+				<h1 id='base'>Поисковой запрос: <i>{{ query }}</i></h1>
+				<table class="table" width="60%">
 					{% for i in range(0, fortemplate|length) %}
 					<tr>
-						<td scope="row">{{ i + 1 }}</td>
-						<td><a href="/word/{{ fortemplate[i].index }}" target="_blank">{{ fortemplate[i].base }}</a></td>
-						<td>{{ fortemplate[i].translate }}</td>
+						<td scope="row" width="5%">{{ i + 1 }} </td>
+						<td width="25%"><a href="/word/{{ fortemplate[i].index }}" target="_blank">{{ fortemplate[i].base }}</a></td>
+						<td width="70%">{{ fortemplate[i].translate }}</td>
 						</tr>
 					{% endfor %}
 				</table>

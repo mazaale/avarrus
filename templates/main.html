@@ -1,71 +1,95 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="\static\styles\mystyle.css">
+		<meta charset="UTF-8">
+		<title>Avar-Rus Main Page</title>
+		<link rel="stylesheet" href="..\\static\\styles\\mystyle.css">
 	</head>
 	<body>
-	<br>
-	<div class="row">
-		<form class="container" action="/searchresult" method="get">
-			<div class="row">
-				<div class="col-md-4"></div>
-				<input class="col-md-4" type="text" name="loc" placeholder="Введите искомое слово">
-			</div>
-			<div class="row">
-				<select name="genre" id="language" class="form-control">
-					<option value="avarrus">Аварско-русский</option>
-					<option value="rusavar">Русско-аварский</option>
-			</div>
-			<br>
-			<div class="row">
-				<input type="submit" name="submit" value="Поиск">
-			</div>
-			</form>
-				<form>
+		<header width="100%">
+		<br>
+		<h1>Аварско-русский и Русско-аварский онлайн-словарь</h1>
+		<h2>(Под редакцией М.М. Гимбатова) – Махачкала: ДНЦ РАН, 2006<h2>
+		<h3>Школа лингвистики, 2021</h3>
+		<br>
+	</header>
+<br>
+<form id='searchform' action="/searchresult" method="get">
+		<table align='center' id='search'>
+		<tr>
+			<td id='searchinput' width="60%" align='center'>
+				<input required size='100%' type="text" name="loc" placeholder="Введите искомое слово">
+			</td>
+			<td id='searchchoice' width="25%" align='left'>
+				<select width='100%' name="genre" id="language">
+					<option value="avarrus">Аварско-русский перевод</option>
+					<option value="rusavar">Русско-аварский перевод</option>
+			</td align='center'>
+			<td id='searchproced' width="15%" align='left'>
+				<button id='searchbutton' type="submit" name="submit" value="Поиск"><b>Поиск</b></button>
+			</td>
+		</tr>
+		</table>
+		</form>
+						<form action="/searchresult" method="get">
 				<h1 align='center'>Русско-аварский словарь</h1>
-				  <table border="1" width="40%" cellpadding="5" align='center'>
+				  <table border="0" width="50%" class='buttons' cellpadding="0" cellspacing="3" align='center'>
 					<tr>
-					<th><a class="linker" href="а.html">а</a></th>
-					<th><a class="linker" href="б.html">б</a></th>
-					<th><a class="linker" href="в.html">в</a></th>
-					<th><a class="linker" href="г.html">г</a></th>
-					<th><a class="linker" href="д.html">е</a></th>
-					<th><a class="linker" href="д.html">ё</a></th>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xа">а</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xб">б</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xв">в</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xг">г</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xгI">гI</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xгъ">гъ</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xгь">гь</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xд">д</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xе">е</button></td>
 					</tr>
 					<tr>
-					<th><a class="linker" href="д.html">ж</a></th>
-					<th><a class="linker" href="д.html">з</a></th>
-					<th><a class="linker" href="д.html">и</a></th>
-					<th><a class="linker" href="д.html">к</a></th>
-					<th><a class="linker" href="д.html">л</a></th>
-					<th><a class="linker" href="д.html">м</a></th>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xё">ё</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xж">ж</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xз">з</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xи">и</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xй">й</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xк">к</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xкI">кI</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xкъ">къ</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xкь">кь</button></td>
+					</tr>
+					<tr>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xл">л</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xлъ">лъ</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xм">м</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xн">н</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xо">о</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xп">п</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xр">р</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xс">с</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xт">т</button></td>
+					</tr>
+					<tr>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xтI">тI</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xу">у</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xф">ф</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xх">х</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xхI">хI</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xхъ">хъ</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xхь">хь</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xц">ц</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xцI">цI</button></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xч">ч</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xчI">чI</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xш">ш</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xщ">щ</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xэ">э</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xю">ю</button></td>
+						<td><button type="submit" class="spletter" name="loc" value="__x__xя">я</button></td>
+						<td></td>
 					</tr>
 					</table>
 				</form>
-				<form>
-				<h1 align='center'>Аварско-русский словарь</h1>
-				  <table border="1" width="40%" cellpadding="5" align='center'>
-					<tr>
-					<th><a class="linker" href="а.html">а</a></th>
-					<th><a class="linker" href="б.html">б</a></th>
-					<th><a class="linker" href="в.html">в</a></th>
-					<th><a class="linker" href="г.html">г</a></th>
-					<th><a class="linker" href="д.html">е</a></th>
-					<th><a class="linker" href="д.html">ё</a></th>
-					</tr>
-					<tr>
-					<th><a class="linker" href="д.html">ж</a></th>
-					<th><a class="linker" href="д.html">з</a></th>
-					<th><a class="linker" href="д.html">и</a></th>
-					<th><a class="linker" href="д.html">к</a></th>
-					<th><a class="linker" href="д.html">л</a></th>
-					<th><a class="linker" href="д.html">м</a></th>
-					</tr>
-					</table>
-				</form>
-	</body>
+	<br><br></body>
 </html>

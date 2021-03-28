@@ -1,7 +1,84 @@
-body{background-color: #FFE4E1}
-input{width: 100%}
-input.radio{width: 20%}
-input.submit{width: 20%}
-input.checkbox{width: 20%}
-select{width: 100%}
-ul{list-style-type: none}
+html {
+  font-size: 62.5%;
+  font-family: serif;
+}
+body {
+  font-size: 1.8rem;
+  line-height: 1.618;
+  margin: auto;
+  color: #4a4a4a;
+  background-color: #f9f9f9;
+}
+
+header{
+	text-align: center;
+	background-color: #A25151;
+	color: #f9f9f9;
+	text-align:center;
+	max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+h1 {
+  font-size: 1.5em;
+}
+h2 {
+  font-size: 1.25em;
+}
+h3 {
+  font-size: 1.10em;
+}
+h4 {
+  font-size: 1em;
+}
+h5 {
+  font-size: 0.8em;
+}
+h6 {
+  font-size: 0.5em;
+}
+  
+a {
+	text-decoration:none;
+	color: #4a4a4a;
+		}
+
+
+#base {
+		color: #A25151;
+}
+#output { max-width: 70%;}
+#ourbody, #search, #retyrn { margin: 50px;}
+#searchchoice { }
+
+button {
+    background-color: #A25151; 
+    border: none;
+    color: #f9f9f9;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	  flex: 1;
+}
+
+#searchbutton
+{padding: 15px 32px;}
+
+.spletter
+{
+  width: 50px;
+  height: 30px;  
+}
+
+#searchform {position: sticky; top: 0; background-color: #f9f9f9;}

@@ -1,79 +1,87 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="\static\styles\mystyle.css">
+		<meta charset="UTF-8">
+		<title>Word Article</title>
+		<link rel="stylesheet" href="..\\static\\styles\\mystyle.css">
 	</head>
 	<body>
+	<header width="100%">
+		<br>
+		<h1>Аварско-русский и Русско-аварский онлайн-словарь</h1>
+		<h2>(Под редакцией М.М. Гимбатова) – Махачкала: ДНЦ РАН, 2006<h2>
+		<h3>Школа лингвистики, 2021</h3>
+		<br>
+	</header>
 	<br>
-	<div class="row">
-		<form class="container" action="/searchresult" method="get">
-			<div class="row">
-				<div class="col-md-4"></div>
-				<input class="col-md-4" type="text" name="loc" placeholder="Введите искомое слово">
-			</div>
-			<div class="row">
-				<select name="genre" id="language" class="form-control">
-					<option value="avarrus">Аварско-русский</option>
-					<option value="rusavar">Русско-аварский</option>
-			</div>
-			<br>
-			<div class="row">
-				<input type="submit" name="submit" value="Поиск">
-			</div>
-			</form>
-				<form class="container">
-					<br>
-					<a class="linker" href="main.html">На главную страницу</a></p>
-					<br>
-				</form>
+	<form id='searchform' action="/searchresult" method="get">
+		<table align='center' id='search'>
+		<tr>
+			<td id='searchinput' width="60%" align='center'>
+				<input required size='100%' type="text" name="loc" placeholder="Введите искомое слово">
+			</td>
+			<td id='searchchoice' width="25%" align='left'>
+				<select width='100%' name="genre" id="language">
+					<option value="avarrus">Аварско-русский перевод</option>
+					<option value="rusavar">Русско-аварский перевод</option>
+			</td align='center'>
+			<td id='searchbutton' width="15%" align='left'>
+				<button id='searchbutton' type="submit" name="submit" value="Поиск"><b>Поиск</b></button>
+			</td>
+		</tr>
+		</table>
+		</form>
+		
+		<div id='ourbody'>
 				
-				<form class="container">
-				<h1>{{ word.base }}</h1>
-					<h3>{{ word.lemma }} &nbsp&nbsp</h3>
+		<form id='output'>
+				<h1 id='base'>{{ word.base }}</h1>
+					<h3>{{ word.lemma }}</h3>
 					{% if word.grammar %}
-					<h4> {{ word.grammar }} </h4>
-					{% endif %}
+					<h5> {{ word.grammar }} </h5>
 					<br>
-			<table class="table" align='center'>
-			<tr>
-				<td></td>
-				<td><i>{{ word.explanatation }}</i></td>
-			</tr>
-			{% if word.translate %}
-			<tr>
-				<td>Перевод:</td>
-				<td>{{ word.translate }}</td>
-			</tr>
-			{% endif %}
-			{% if word.link %}
-			<tr>
-				<td><i>см.</i></td>
-				<td>
-					{% for x in word.link %}
-						{{ x }}, 
-					{% endfor %}
-				</td>
-			</tr>
-			{% endif %}
-			</table>
+					{% endif %}
+					
+			<i>{{ word.explanatation }}</i>
+				{% if word.translate %}
+				
+					<h4 align="left"><i>Перевод:</i></h4>
+					{{ word.translate }}
+					<br>
+				{% endif %}
+				
+				{% if word_link %}
+				
+					<i>см. </i>{{ word_link }}
+				{% endif %}
+			
+			<br>
 			{% if word.examples %}
-			<h5><i>Примеры:</i></h5>
-			<table class="table" align='center'>
+			<h4 align="left"><i>Примеры:</i></h4>
+			<table class="table" align='left' width='60%' cellspacing='5px'>
 				{% for pair in word.examples %}
 				<tr>
-						<td><b>{{ pair[0] }}</b></td>
+					<td width="50%">
+						<b>{{ pair[0]|safe }}</b>
+					</td>
+					
+					<td width="50%">
+						{{ pair[1]|safe }}
+					</td>
 				</tr>	
-				<tr>
-					<td><b>{{ pair[1] }}</b></td>
-			</tr>	
 				{% endfor %}
 			</table>
 			{% endif %}
-				</form>
-
+		</form>
+		<br>
+		<br>
+		</div>
+		<div id="retyrn">
+		<span><form>
+			<a class="linker" href="../"><u>Перейти на главную страницу</u></a></p>
+			<br>
+		</form>
+		</span>
+	</div>
 	</body>
 </html>
