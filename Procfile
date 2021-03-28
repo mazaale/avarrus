@@ -1,0 +1,1 @@
+web: python avar_app.py
