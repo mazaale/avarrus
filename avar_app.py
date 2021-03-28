@@ -37,4 +37,7 @@ def showword(word_index):
     return render_template("wordinfo.html", word=word, word_link=word_link)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    import os
+    app.debug = True
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
