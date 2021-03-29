@@ -31,6 +31,42 @@ df['index'] = df.index
 df_rus = pd.read_json('df_rus.json', orient='index')
 df_avar = pd.read_json('df_avar.json', orient='index')
 
+clitics_end = [
+    'ги',
+    'гури',
+    'гъун',
+    'гIаги',
+    'гIан',
+    'гIанаб',
+    'гIанав',
+    'гIанай',
+    'гIанасеб',
+    'гIанасев',
+    'гIанасей',
+    'духъ',
+    'ккун',
+    'кьераб',
+    'лъила',
+    'махIаб',
+    'ни',
+    'ниги',
+    'тIалаяб',
+    'уна',
+    'хун',
+    'хIа',
+    'хIалаб',
+    'цибилаб',
+    'цин',
+    'чи',
+    'щинаб'
+]
+clitics_beg = [
+    'балугъ',
+    'гьин',
+    'гIада',
+    'нахъ'
+]
+
 def clean_query(query):
     query = re.sub('[1\|l]', 'I', query)
     query = re.sub('[^Iа-яА-Я\- ]', "", query).strip()
@@ -42,8 +78,25 @@ def search_engine(query, genre):
     else:
         df_sub = df_rus
 
-    ix_list = df_sub.loc[df_sub['word'] == query, 'big_ix'].to_list()
+    query_list = []
+    if query in clitics_beg or query in clitics_end:
+        query_list = [query]
+    else:
+        query_list = [query]
+        for c_end in clitics_end:
+            if query.endswith(c_end):
+                query_list.append(query[:-len(c_end)])
+                query_list.append(c_end)
+        for c_beg in clitics_beg:
+            if query.startswith(c_beg):
+                query_list.append(query[len(c_beg):])
+                query_list.append(c_beg)
+
+    ix_list = []
+    for query in query_list:
+        ix_list.extend(df_sub.loc[df_sub['word'] == query, 'big_ix'].to_list())
     fortemplate = df.loc[ix_list].to_dict(orient='records')
+    
     return fortemplate
 
 def letter_contents(query):
